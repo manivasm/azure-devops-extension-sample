@@ -9,7 +9,7 @@ jobs:
   - template: azure-pipelines-steps.yml
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      PathtoPublish: '$(System.DefaultWorkingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
@@ -20,6 +20,6 @@ jobs:
   - template: azure-pipelines-steps.yml
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      PathtoPublish: '$(System.DefaultWorkingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
