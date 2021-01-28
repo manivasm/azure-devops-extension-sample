@@ -7,19 +7,28 @@ jobs:
     vmImage: 'ubuntu-16.04'
   steps:
   - template: azure-pipelines-steps.yml
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '*.vsix'
+      TargetFolder: '$(System.DefaultWorkingDirectory)/extension'
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(System.DefaultWorkingDirectory)'
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/extension'
       ArtifactName: 'drop'
-      publishLocation: 'Container'
 
 - job: Windows
   pool:
     vmImage: 'vs2017-win2016'
   steps:
   - template: azure-pipelines-steps.yml
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '*.vsix'
+      TargetFolder: '$(System.DefaultWorkingDirectory)/extension'
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(System.DefaultWorkingDirectory)'
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/extension'
       ArtifactName: 'drop'
       publishLocation: 'Container'
