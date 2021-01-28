@@ -4,7 +4,7 @@
             "id": "build-definition-menu-item",
             "type": "ms.vss-web.action",
             "targets": [
-                "ms.vss-build-web.completed-build-menu"
+                "ms.vss-build-web.build-results-summary-tab"
             ],
             "properties": {
                 "text": "Sample build definition menu item",
